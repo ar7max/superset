@@ -29,16 +29,15 @@ export default function EchartsPie({
   labelMap,
   groupby,
   selectedValues,
-  formData,
+  emitFilter,
 }: PieChartTransformedProps) {
   const handleChange = useCallback(
     (values: string[]) => {
-      if (!formData.emitFilter) {
+      if (!emitFilter) {
         return;
-      }
-
+      };
+      console.log(values);
       const groupbyValues = values.map(value => labelMap[value]);
-
       setDataMask({
         extraFormData: {
           filters:
@@ -74,7 +73,8 @@ export default function EchartsPie({
       if (values.includes(name)) {
         handleChange(values.filter(v => v !== name));
       } else {
-        handleChange([name]);
+        // allow toggling values
+        handleChange(values.concat([name]));
       }
     },
   };

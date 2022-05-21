@@ -81,7 +81,7 @@ export const DEFAULT_FORM_DATA: EchartsPieFormData = {
   showLabels: true,
   labelsOutside: true,
   showLabelsThreshold: 5,
-  emitFilter: false,
+  emitFilter: true,
   dateFormat: 'smart_date',
 };
 
